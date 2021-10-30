@@ -1,9 +1,10 @@
 package nav
 
 import (
-	"github.com/nojnilsson/aoc/io"
 	"strconv"
 	"strings"
+
+	"github.com/nojnilsson/aoc/puzzleio"
 )
 
 type Coordinate struct {
@@ -50,7 +51,7 @@ func FindExtremes(coordinates []Coordinate) (Coordinate, Coordinate) {
 // Should move to aocinput?
 func ReadCoordinates(fname string) []Coordinate {
 	var coordinates []Coordinate
-	lines := io.InputFileToSlice(fname)
+	lines := puzzleio.ReadLines(fname)
 	for _, l := range lines {
 		ais := strings.Split(l, ",")
 		x, _ := strconv.Atoi(strings.TrimSpace(ais[0]))
