@@ -24,6 +24,6 @@ func fileToStrSlice(f *os.File) []string {
 	return lines
 }
 
-func InputFileToSlice(fname string) []string {
-	return fileToStrSlice(readInput(fname))
+func ReadLines(fname string) []string {
+	return fileToStrSlice(fname)
 }
