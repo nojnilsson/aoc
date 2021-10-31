@@ -4,6 +4,8 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"strconv"
+	"strings"
 )
 
 func readInput(fname string) *os.File {
@@ -26,4 +28,14 @@ func fileToStrSlice(f *os.File) []string {
 
 func ReadLines(fname string) []string {
 	return fileToStrSlice(readInput(fname))
+}
+
+func ReadLineOfNumbers(fname string) []int {
+	lines := ReadLines(fname)
+	var numbers []int
+	for _, a := range strings.Fields(lines[0]) {
+		i, _ := strconv.Atoi(a)
+		numbers = append(numbers, i)
+	}
+	return numbers
 }
