@@ -1,6 +1,7 @@
 package nav
 
 import (
+	"fmt"
 	"strconv"
 	"strings"
 
@@ -21,8 +22,8 @@ func intAbs(i int) int {
 
 func (c1 *Coordinate) Add(c2 Coordinate) {
 	c1.X = c1.X + c2.X
-	c1.Y = c1.X + c2.
-		fmt.Println(*c1)
+	c1.Y = c1.X + c2.Y
+	fmt.Println(*c1)
 }
 
 func (c1 Coordinate) ManhattanDistance(c2 Coordinate) int {
