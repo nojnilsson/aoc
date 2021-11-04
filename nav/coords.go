@@ -12,6 +12,13 @@ type Coordinate struct {
 	Y int
 }
 
+func newCoordinate(x int, y int) *Coordinate {
+	var c Coordinate
+	c.X = x
+	c.Y = y
+	return &c
+}
+
 func intAbs(i int) int {
 	if i < 0 {
 		i = -i
