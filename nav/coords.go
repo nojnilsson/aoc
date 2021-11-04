@@ -22,7 +22,7 @@ func intAbs(i int) int {
 
 func (c1 *Coordinate) Add(c2 Coordinate) {
 	c1.X = c1.X + c2.X
-	c1.Y = c1.X + c2.Y
+	c1.Y = c1.Y + c2.Y
 	fmt.Println(*c1)
 }
 
