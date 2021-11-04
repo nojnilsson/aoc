@@ -19,9 +19,10 @@ func intAbs(i int) int {
 	return i
 }
 
-func (c1 Coordinate) Add(c2 Coordinate) {
+func (c1 *Coordinate) Add(c2 Coordinate) {
 	c1.X = c1.X + c2.X
-	c1.Y = c1.X + c2.Y
+	c1.Y = c1.X + c2.
+		fmt.Println(*c1)
 }
 
 func (c1 Coordinate) ManhattanDistance(c2 Coordinate) int {
