@@ -12,7 +12,7 @@ type Coordinate struct {
 	Y int
 }
 
-func newCoordinate(x int, y int) *Coordinate {
+func NewCoordinate(x int, y int) *Coordinate {
 	var c Coordinate
 	c.X = x
 	c.Y = y
