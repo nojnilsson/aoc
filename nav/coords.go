@@ -61,11 +61,7 @@ func FindExtremes(coordinates []Coordinate) (Coordinate, Coordinate) {
 	return Coordinate{minX, minY}, Coordinate{maxX, maxY}
 }
 
-type Positioner interface {
-	getPosition() Coordinate
-}
-
-type byCoord []Positioner
+type byCoord []Coordinate
 
 func (c byCoord) Len() int {
 	return len(c)
@@ -76,17 +72,17 @@ func (c byCoord) Swap(i, j int) {
 }
 
 func (c byCoord) Less(i, j int) bool {
-	if c[i].getPosition().Y < c[j].getPosition().Y {
+	if c[i].Y < c[j].Y {
 		return true
 	}
-	if c[i].getPosition().Y == c[j].getPosition().Y {
-		return c[i].getPosition().X < c[j].getPosition().X
+	if c[i].Y == c[j].Y {
+		return c[i].X < c[j].X
 	}
 	return false
 }
 
-func SortPositioner(ps []Positioner) {
-	sort.Sort(byCoord(ps))
+func SortCoordinates(cs []Coordinate) {
+	sort.Sort(byCoord(cs))
 }
 
 // Should move to aocinput?
