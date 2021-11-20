@@ -1,6 +1,7 @@
 package nav
 
 import (
+	"sort"
 	"strconv"
 	"strings"
 
@@ -58,6 +59,34 @@ func FindExtremes(coordinates []Coordinate) (Coordinate, Coordinate) {
 		}
 	}
 	return Coordinate{minX, minY}, Coordinate{maxX, maxY}
+}
+
+type Positioner interface {
+	getPosition() Coordinate
+}
+
+type byCoord []Positioner
+
+func (c byCoord) Len() int {
+	return len(c)
+}
+
+func (c byCoord) Swap(i, j int) {
+	c[i], c[j] = c[j], c[i]
+}
+
+func (c byCoord) Less(i, j int) bool {
+	if c[i].getPosition().Y < c[j].getPosition().Y {
+		return true
+	}
+	if c[i].getPosition().Y == c[j].getPosition().Y {
+		return c[i].getPosition().X < c[j].getPosition().X
+	}
+	return false
+}
+
+func sortPositioner(ps []Positioner) {
+	sort.Sort(byCoord(ps))
 }
 
 // Should move to aocinput?
