@@ -85,7 +85,7 @@ func (c byCoord) Less(i, j int) bool {
 	return false
 }
 
-func sortPositioner(ps []Positioner) {
+func SortPositioner(ps []Positioner) {
 	sort.Sort(byCoord(ps))
 }
 
