@@ -61,6 +61,15 @@ func FindExtremes(coordinates []Coordinate) (Coordinate, Coordinate) {
 	return Coordinate{minX, minY}, Coordinate{maxX, maxY}
 }
 
+func (c Coordinate) FindAdjacent() []Coordinate {
+	var adj []Coordinate
+	adj = append(adj, Coordinate{c.X, c.Y - 1})
+	adj = append(adj, Coordinate{c.X + 1, c.Y})
+	adj = append(adj, Coordinate{c.X, c.Y + 1})
+	adj = append(adj, Coordinate{c.X - 1, c.Y})
+	return adj
+}
+
 type byCoord []Coordinate
 
 func (c byCoord) Len() int {
