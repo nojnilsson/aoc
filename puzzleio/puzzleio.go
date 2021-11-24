@@ -30,12 +30,21 @@ func ReadLines(fname string) []string {
 	return fileToStrSlice(readInput(fname))
 }
 
-func ReadLineOfNumbers(fname string) []int {
-	lines := ReadLines(fname)
+func ParseNumbers(nums string) []int {
 	var numbers []int
-	for _, a := range strings.Fields(lines[0]) {
+	for _, a := range strings.Fields(nums) {
 		i, _ := strconv.Atoi(a)
 		numbers = append(numbers, i)
 	}
 	return numbers
+}
+
+func ReadLineOfNumbers(fname string) []int {
+	lines := ReadLines(fname)
+	/*var numbers []int
+	for _, a := range strings.Fields(lines[0]) {
+		i, _ := strconv.Atoi(a)
+		numbers = append(numbers, i)
+	}*/
+	return ParseNumbers(lines[0])
 }

@@ -77,3 +77,31 @@ func TestFindExtremes(t *testing.T) {
 		}
 	}
 }
+
+func TestFindAdjacent(t *testing.T) {
+	testTuples := []struct {
+		c Coordinate
+		a []Coordinate
+	}{
+		{
+			Coordinate{0, 0},
+			[]Coordinate{{0, -1}, {1, 0}, {0, 1}, {-1, 0}},
+		},
+		{
+			Coordinate{-1, -1},
+			[]Coordinate{{-1, -2}, {0, -1}, {-1, 0}, {-2, -1}},
+		},
+		{
+			Coordinate{1, 1},
+			[]Coordinate{{1, 0}, {2, 1}, {1, 2}, {0, 1}},
+		},
+	}
+	for _, tuple := range testTuples {
+		adj := tuple.c.FindAdjacent()
+		for i, p := range adj {
+			if p != tuple.a[i] {
+				t.Error("Errof finding adjacent positions. Expected:", tuple.a, "Got:", adj)
+			}
+		}
+	}
+}
