@@ -57,7 +57,7 @@ func ReadNumbers(fname string) []int {
 func ReadCSVNumbers(fname string, separator string) [][]int {
 	lines := ReadLines(fname)
 	var numberLists [][]int
-	for l, _ := range lines {
+	for _, l := range lines {
 		var numbers []int
 		for _, a := range strings.Split(l, separator) {
 			i, _ := strconv.Atoi(a)
