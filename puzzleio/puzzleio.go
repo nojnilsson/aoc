@@ -41,10 +41,29 @@ func ParseNumbers(nums string) []int {
 
 func ReadLineOfNumbers(fname string) []int {
 	lines := ReadLines(fname)
-	/*var numbers []int
-	for _, a := range strings.Fields(lines[0]) {
-		i, _ := strconv.Atoi(a)
-		numbers = append(numbers, i)
-	}*/
 	return ParseNumbers(lines[0])
+}
+
+func ReadNumbers(fname string) []int {
+	lines := ReadLines(fname)
+	var numbers []int
+	for l, _ := range lines {
+		n, _ := strconv.Atoi(l)
+		numbers = append(numbers, n)
+	}
+	return numbers
+}
+
+func ReadCSVNumbers(fname string, separator string) [][]int {
+	lines := ReadLines(fname)
+	var numberLists [][]int
+	for l, _ := range lines {
+		var numbers []int
+		for _, a := range strings.Split(l, separator) {
+			i, _ := strconv.Atoi(a)
+			numbers = append(numbers, i)
+		}
+		numberLists = append(numberLists, numbers)
+	}
+	return numberLists
 }
