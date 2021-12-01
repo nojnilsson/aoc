@@ -47,7 +47,7 @@ func ReadLineOfNumbers(fname string) []int {
 func ReadNumbers(fname string) []int {
 	lines := ReadLines(fname)
 	var numbers []int
-	for l, _ := range lines {
+	for _, l := range lines {
 		n, _ := strconv.Atoi(l)
 		numbers = append(numbers, n)
 	}
