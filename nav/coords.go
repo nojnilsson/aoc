@@ -70,6 +70,19 @@ func (c Coordinate) FindAdjacent() []Coordinate {
 	return adj
 }
 
+func (c Coordinate) FindSurrounding() []Coordinate {
+	var surrounding []Coordinate
+	surrounding = append(surrounding, Coordinate{X: c.X - 1, Y: c.Y - 1})
+	surrounding = append(surrounding, Coordinate{X: c.X, Y: c.Y - 1})
+	surrounding = append(surrounding, Coordinate{X: c.X + 1, Y: c.Y - 1})
+	surrounding = append(surrounding, Coordinate{X: c.X - 1, Y: c.Y})
+	surrounding = append(surrounding, Coordinate{X: c.X + 1, Y: c.Y})
+	surrounding = append(surrounding, Coordinate{X: c.X - 1, Y: c.Y + 1})
+	surrounding = append(surrounding, Coordinate{X: c.X, Y: c.Y + 1})
+	surrounding = append(surrounding, Coordinate{X: c.X + 1, Y: c.Y + 1})
+	return surrounding
+}
+
 type byCoord []Coordinate
 
 func (c byCoord) Len() int {
